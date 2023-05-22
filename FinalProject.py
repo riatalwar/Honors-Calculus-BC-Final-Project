@@ -68,12 +68,12 @@ def riemann_sums():
     points.sort()
     print(points)
 
-    print('Options\n1. Left riemann Sum\n2. Right riemann Sum\n3. Midpoint riemann Sum\n4. Trapezoid riemann Sum')
+    print('Options\n1. Left Riemann Sum\n2. Right Riemann Sum\n3. Midpoint Riemann Sum\n4. Trapezoid Riemann Sum')
     invalid = True
     option = 0
     while invalid:
         try:
-            option = int(input('Which riemann sum would you like to apply (1-4)?'))
+            option = int(input('Which Riemann sum would you like to apply (1-4)?'))
             if option > 4 or option < 1:
                 print('ERROR: Invalid input: input must be between 1 and 4 inclusive.')
             else:
@@ -120,10 +120,10 @@ def euler_input():
     return point, numSteps, end
 
 def main():
-    print('This program can calculate the value of a point using Euler\'s method or find the area under the curve using any of the riemann sums.')
-    print('Options\n1. Euler\'s Method\n2. riemann Sum')
+    print('This program can calculate the value of a point using Euler\'s method or find the area under the curve using any of the Riemann sums.')
+    print('Options\n1. Euler\'s Method\n2. Riemann Sum')
     
-    invalid = True  # to validate user choice for Euler's/riemann
+    invalid = True  # to validate user choice for Euler's/Riemann
     while invalid:
         try:
             option = int(input('Which option would you like to select (1-2)? '))
