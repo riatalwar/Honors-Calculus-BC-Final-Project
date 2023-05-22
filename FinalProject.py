@@ -9,7 +9,7 @@ def eulers_method(x, y, numSteps, end):
 
     return (round(x, 2), round(y, 2))
 
-def right_reimann(points):
+def right_riemann(points):
     sum = 0
     for i in range(len(points) - 1):
         dist = points[i + 1][0] - points[i][0]
@@ -17,7 +17,7 @@ def right_reimann(points):
         sum += dist * h
     return sum
 
-def left_reimann(points):
+def left_riemann(points):
     sum = 0
     for i in range(len(points) - 1):
         dist = points[i + 1][0] - points[i][0]
@@ -25,7 +25,7 @@ def left_reimann(points):
         sum += dist * h
     return sum
 
-def mid_reimann(points):
+def mid_riemann(points):
     sum = 0
     for i in range(len(points) - 1):
         dist = points[i + 1][0] - points[i][0]
@@ -33,7 +33,7 @@ def mid_reimann(points):
         sum += dist * h
     return sum
 
-def trap_reimann(points):
+def trap_riemann(points):
     sum = 0
     for i in range(len(points) - 1):
         dist = points[i + 1][0] - points[i][0]
@@ -51,7 +51,7 @@ def get_point():
         print('ERROR: Invalid Input: input must be an integer or decimal value.')
         return False
 
-def reimann_sums():
+def riemann_sums():
     points = []
     inp = get_point()
     if inp:
@@ -68,12 +68,12 @@ def reimann_sums():
     points.sort()
     print(points)
 
-    print('Options\n1. Left Reimann Sum\n2. Right Reimann Sum\n3. Midpoint Reimann Sum\n4. Trapezoid Reimann Sum')
+    print('Options\n1. Left riemann Sum\n2. Right riemann Sum\n3. Midpoint riemann Sum\n4. Trapezoid riemann Sum')
     invalid = True
     option = 0
     while invalid:
         try:
-            option = int(input('Which Reimann sum would you like to apply (1-4)?'))
+            option = int(input('Which riemann sum would you like to apply (1-4)?'))
             if option > 4 or option < 1:
                 print('ERROR: Invalid input: input must be between 1 and 4 inclusive.')
             else:
@@ -82,22 +82,24 @@ def reimann_sums():
             print('ERROR: Invalid input: Input must be an integer between 1 and 4 inclusive.')
     
     if option == 1:
-        sum = left_reimann(points)
+        sum = left_riemann(points)
     elif option == 2:
-        sum = right_reimann(points)
+        sum = right_riemann(points)
     elif option == 3:
-        sum = mid_reimann(points)
+        sum = mid_riemann(points)
     else:
-        sum = trap_reimann(points)
+        sum = trap_riemann(points)
     return sum
 
 def euler_input():
     print('This will calculate Euler\'s Method with dy/dx of y ** x')
     
+    # get starting point from user
     point = get_point()
     while not point:
         point = get_point()
     
+    # get number of steps from user
     invalid = True
     while invalid:
         try:
@@ -106,6 +108,7 @@ def euler_input():
         except:
             print('ERROR: Invalid input: dx must be an integer value.')
     
+    # get final x-coord from user
     invalid = True
     while invalid:
         try:
@@ -117,10 +120,10 @@ def euler_input():
     return point, numSteps, end
 
 def main():
-    print('This program can calculate the value of a point using Euler\'s method or find the area under the curve using any of the Reimann sums.')
-    print('Options\n1. Euler\'s Method\n2. Reimann Sum')
+    print('This program can calculate the value of a point using Euler\'s method or find the area under the curve using any of the riemann sums.')
+    print('Options\n1. Euler\'s Method\n2. riemann Sum')
     
-    invalid = True  # to validate user choice for Euler's/Reimann
+    invalid = True  # to validate user choice for Euler's/riemann
     while invalid:
         try:
             option = int(input('Which option would you like to select (1-2)? '))
@@ -140,9 +143,9 @@ def main():
         point = eulers_method(inp[0][0], inp[0][1], inp[1], inp[2])
         print(point)
     else:
-        # execute Reimann sums
-        reimann = reimann_sums()
+        # execute riemann sums
+        riemann = riemann_sums()
         print('\nSolution:')
-        print(reimann)
+        print(riemann)
 
 main()
