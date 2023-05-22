@@ -55,7 +55,7 @@ def reimann_sums():
     inp = get_point()
     if inp:
         points.append(inp)
-    cont = "y"
+    cont = 'y'
    
     while cont.lower() == 'y':
         inp = get_point()
@@ -91,7 +91,7 @@ def reimann_sums():
     return sum
 
 def euler_input():
-    print("This will calculate Euler's Method with dy/dx of y ** x")
+    print('This will calculate Euler\'s Method with dy/dx of y ** x')
     
     point = get_point()
     while not point:
