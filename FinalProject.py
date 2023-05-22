@@ -91,10 +91,12 @@ def reimann_sums():
     return sum
 
 def euler_input():
+    print("This will calculate Euler's Method with dy/dx of y ** x")
+    
     point = get_point()
     while not point:
         point = get_point()
-
+    
     invalid = True
     while invalid:
         try:
