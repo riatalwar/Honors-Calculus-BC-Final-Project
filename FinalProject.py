@@ -1,5 +1,6 @@
 def eulers_method(x, y, dx, end):
     while x < end:
+        # Automatic dydx is y^x, can be changed manually
         dydx = y ** x
         dy = dx * dydx
         x += dx
@@ -114,8 +115,8 @@ def euler_input():
 
 def main():
     print('Options\n1. Euler\'s Method\n2. Reimann Sum')
-    invalid = True
-    option = 0
+    
+    invalid = True  # to validate user choice for Euler's/Reimann
     while invalid:
         try:
             option = int(input('Which option would you like to select (1-2)? '))
@@ -125,12 +126,19 @@ def main():
                 invalid = False
         except:
             print('ERROR: Invalid input: Input must be an integer between 1 and 2 inclusive.')
+    
+    print()
+
     if option == 1:
+        # execute Euler's method
         inp = euler_input()
+        print('\nSolution:')
         point = eulers_method(inp[0][0], inp[0][1], inp[1], inp[2])
         print(point)
     else:
+        # execute Reimann sums
         reimann = reimann_sums()
+        print('\nSolution:')
         print(reimann)
 
 main()
