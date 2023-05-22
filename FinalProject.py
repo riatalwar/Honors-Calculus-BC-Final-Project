@@ -43,30 +43,24 @@ def trap_riemann(points):
     return sum
 
 def get_point():
-    try:
-        inpX = float(input('Enter X: '))
-        inpY = float(input('Enter Y: '))
-        return (inpX, inpY)
-    except:
-        print('ERROR: Invalid Input: input must be an integer or decimal value.')
-        return False
+    while True:
+        try:
+            inpX = float(input('Enter X: '))
+            inpY = float(input('Enter Y: '))
+            return (inpX, inpY)
+        except:
+            print('ERROR: Invalid Input: input must be an integer or decimal value.')
 
 def riemann_sums():
-    points = []
-    inp = get_point()
-    if inp:
-        points.append(inp)
+    points = [get_point()]
+    
     cont = 'y'
-   
     while cont.lower() == 'y':
-        inp = get_point()
-        if inp:
-            points.append(inp)
-
+        points.append(get_point())
         cont = input('Enter \'y\' if you would like to continue: ')
 
     points.sort()
-    print(points)
+    print()
 
     print('Options\n1. Left Riemann Sum\n2. Right Riemann Sum\n3. Midpoint Riemann Sum\n4. Trapezoid Riemann Sum')
     invalid = True
@@ -96,8 +90,6 @@ def euler_input():
     
     # get starting point from user
     point = get_point()
-    while not point:
-        point = get_point()
     
     # get number of steps from user
     invalid = True
