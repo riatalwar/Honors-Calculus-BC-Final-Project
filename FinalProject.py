@@ -1,4 +1,5 @@
-def eulers_method(x, y, dx, end):
+def eulers_method(x, y, numSteps, end):
+    dx = (end - x) / numSteps
     while x < end:
         # Automatic dydx is y^x, can be changed manually
         dydx = y ** x
@@ -100,10 +101,10 @@ def euler_input():
     invalid = True
     while invalid:
         try:
-            dx = float(input('Enter a value for dx: '))
+            numSteps = int(input('Enter the number of steps: '))
             invalid = False
         except:
-            print('ERROR: Invalid input: dx must be a decimal value.')
+            print('ERROR: Invalid input: dx must be an integer value.')
     
     invalid = True
     while invalid:
@@ -113,7 +114,7 @@ def euler_input():
         except:
             print('ERROR: Invalid input: end value must be a decimal value.')
     
-    return point, dx, end
+    return point, numSteps, end
 
 def main():
     print('This program can calculate the value of a point using Euler\'s method or find the area under the curve using any of the Reimann sums.')
