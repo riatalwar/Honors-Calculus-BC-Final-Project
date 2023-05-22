@@ -1,12 +1,11 @@
-def eulers_method(x, y, dx):
-    while x < 1.5:
+def eulers_method(x, y, dx, end):
+    while x < end:
         dydx = y ** x
         dy = dx * dydx
-        print(round(x, 2), round(y, 2), round(dx, 2), round(dydx, 2), round(dy, 2))
         x += dx
         y += dy
 
-    return (x, y)
+    return (round(x, 2), round(y, 2))
 
 def right_reimann(points):
     sum = 0
@@ -103,7 +102,15 @@ def euler_input():
         except:
             print('ERROR: Invalid input: dx must be a decimal value.')
     
-    return point, dx
+    invalid = True
+    while invalid:
+        try:
+            end = float(input('Enter the final x-coordinate: '))
+            invalid = False
+        except:
+            print('ERROR: Invalid input: end value must be a decimal value.')
+    
+    return point, dx, end
 
 def main():
     print('Options\n1. Euler\'s Method\n2. Reimann Sum')
@@ -120,7 +127,8 @@ def main():
             print('ERROR: Invalid input: Input must be an integer between 1 and 2 inclusive.')
     if option == 1:
         inp = euler_input()
-        eulers_method(inp[0][0], inp[0][1], inp[1])
+        point = eulers_method(inp[0][0], inp[0][1], inp[1], inp[2])
+        print(point)
     else:
         reimann = reimann_sums()
         print(reimann)
