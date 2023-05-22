@@ -76,14 +76,13 @@ def riemann_sums():
             print('ERROR: Invalid input: Input must be an integer between 1 and 4 inclusive.')
     
     if option == 1:
-        sum = left_riemann(points)
+        return left_riemann(points)
     elif option == 2:
-        sum = right_riemann(points)
+        return right_riemann(points)
     elif option == 3:
-        sum = mid_riemann(points)
+        return mid_riemann(points)
     else:
-        sum = trap_riemann(points)
-    return sum
+        return trap_riemann(points)
 
 def euler_input():
     print('This will calculate Euler\'s Method with dy/dx of y ** x')
