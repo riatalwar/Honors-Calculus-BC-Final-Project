@@ -116,6 +116,7 @@ def euler_input():
     return point, dx, end
 
 def main():
+    print('This program can calculate the value of a point using Euler\'s method or find the area under the curve using any of the Reimann sums.')
     print('Options\n1. Euler\'s Method\n2. Reimann Sum')
     
     invalid = True  # to validate user choice for Euler's/Reimann
