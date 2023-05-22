@@ -1,4 +1,4 @@
-def eulers_method(startX, startY, dx):
+def eulers_method(x, y, dx):
     while x < 1.5:
         dydx = y ** x
         dy = dx * dydx
@@ -90,13 +90,28 @@ def reimann_sums():
         sum = trap_reimann(points)
     return sum
 
+def euler_input():
+    point = get_point()
+    while not point:
+        point = get_point()
+
+    invalid = True
+    while invalid:
+        try:
+            dx = float(input('Enter a value for dx: '))
+            invalid = False
+        except:
+            print('ERROR: Invalid input: dx must be a decimal value.')
+    
+    return point, dx
+
 def main():
     print('Options\n1. Euler\'s Method\n2. Reimann Sum')
     invalid = True
     option = 0
     while invalid:
         try:
-            option = int(input('Which Reimann sum would you like to apply (1-2)? '))
+            option = int(input('Which option would you like to select (1-2)? '))
             if option > 2 or option < 1:
                 print('ERROR: Invalid input: input must be between 1 and 2 inclusive.')
             else:
@@ -104,8 +119,8 @@ def main():
         except:
             print('ERROR: Invalid input: Input must be an integer between 1 and 2 inclusive.')
     if option == 1:
-        # GET INPUT
-        eulers_method()
+        inp = euler_input()
+        eulers_method(inp[0][0], inp[0][1], inp[1])
     else:
         reimann = reimann_sums()
         print(reimann)
