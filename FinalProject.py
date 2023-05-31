@@ -1,8 +1,8 @@
 def eulers_method(x, y, numSteps, end):
     dx = (end - x) / numSteps
     while x < end:
-        # Automatic dydx is y^x, can be changed manually
-        dydx = y ** x
+        # Automatic dydx is y*x, can be changed manually
+        dydx = y * x
         dy = dx * dydx
         x += dx
         y += dy
@@ -85,9 +85,10 @@ def riemann_sums():
         return trap_riemann(points)
 
 def euler_input():
-    print('This will calculate Euler\'s Method with dy/dx of y ** x')
+    print('This will calculate Euler\'s Method with dy/dx of y * x')
     
     # get starting point from user
+    print('Enter the coordinates of the starting point.')
     point = get_point()
     
     # get number of steps from user
